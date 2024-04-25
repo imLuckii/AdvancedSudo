@@ -4,11 +4,11 @@ This plugin introduces two commands to your server:
 
 - **/sudo**
   - Usage: `/sudo <player> <message>`
-  - Allows operators to send messages as if they were another player.
+  - Allows you to send messages as another player.
 
 - **/sudoall**
   - Usage: `/sudoall <message>`
-  - Allows operators to broadcast messages to all players on the server.
+  - Allows you to send messages as all online players.
 
 ## Permissions
 
