@@ -1,0 +1,15 @@
+---
+name: AdvancedSudo
+version: 1.0.0
+author: imlucki
+main: imlucki\Loader
+api: 5.15.0
+
+permissions:
+  sudo.command:
+    default: op
+    description: "Allows you to use /sudo"
+  sudoall.command:
+    default: op
+    description: "Allows you to use /sudoall"
+...
