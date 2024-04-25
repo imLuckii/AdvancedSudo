@@ -1,0 +1,3 @@
+# If enabled, when you use the "/sudo" command, you can type part of a username (atleast 3 characters), and it will return the matching player.
+
+partial_username: false
