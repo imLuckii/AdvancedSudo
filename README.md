@@ -1,5 +1,7 @@
 [![](https://poggit.pmmp.io/shield.state/AdvancedSudo)](https://poggit.pmmp.io/p/AdvancedSudo)
 <a href="https://poggit.pmmp.io/p/AdvancedSudo"><img src="https://poggit.pmmp.io/shield.state/AdvancedSudo"></a>
+[![](https://poggit.pmmp.io/shield.api/AdvancedSudo)](https://poggit.pmmp.io/p/AdvancedSudo)
+<a href="https://poggit.pmmp.io/p/AdvancedSudo"><img src="https://poggit.pmmp.io/shield.api/AdvancedSudo"></a>
 ## About
 
 This plugin introduces two commands to your server:
