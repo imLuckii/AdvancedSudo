@@ -1,3 +1,5 @@
+[![](https://poggit.pmmp.io/shield.dl/AdvancedSudo)](https://poggit.pmmp.io/p/AdvancedSudo)
+[![](https://poggit.pmmp.io/shield.dl.total/AdvancedSudo)](https://poggit.pmmp.io/p/AdvancedSudo)
 # AdvancedSudo
 
 AdvancedSudo is a Minecraft plugin that introduces commands allowing server administrators to send messages as other players or to all online players.
