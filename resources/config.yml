@@ -1,3 +1,18 @@
-# If enabled, when you use the "/sudo" command, you can type part of a username (atleast 3 characters), and it will return the matching player.
+# Config Version
+# DO NOT CHANGE THIS
+config-version: "1.0"
 
+# If enabled, when you use the "/sudo" command, you can type part of a username
+# (at least the specified minimum number of characters), and it will return the matching player.
 partial_username: false
+
+# The minimum number of characters required for partial username matching.
+# This value is used when partial_username is set to true.
+# Example: If set to 2, typing '/sudo Ni' can match 'NightDevil9440'.
+partial-username-min: 2
+
+# List of player names that are blacklisted from being sudoed using /sudo or /sudoall commands.
+# Separate each player name with a comma.
+# Example:
+# blacklist: NightDevil9440, BoxierChimera37, BlahCoast30765
+blacklist: NightDevil9440, BoxierChimera37

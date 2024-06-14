@@ -11,11 +11,14 @@ use pocketmine\plugin\PluginOwned;
 
 class SudoCommand extends Command implements PluginOwned
 {
+    private $blacklist;
 
     public function __construct(Loader $plugin)
     {
         parent::__construct("sudo", "Send a message as another player", null, []);
         $this->setPermission("advancedsudo.command.sudo");
+
+        $this->blacklist = array_map('trim', explode(',', $plugin->getConfig()->get('blacklist', '')));
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
@@ -29,18 +32,26 @@ class SudoCommand extends Command implements PluginOwned
             return false;
         }
 
+        $playerName = $args[0];
         $player = null;
+
         if ($this->getOwningPlugin()->getConfig()->get("partial_username")) {
-            if (strlen($args[0]) < 3) {
-                $sender->sendMessage(TextFormat::RED . "Player name must be at least 3 characters long");
+            if (strlen($playerName) < $this->getOwningPlugin()->getConfig()->get("partial-username-min")) {
+                $sender->sendMessage(TextFormat::RED . "Player name must be at least " . $this->getOwningPlugin()->getConfig()->get("partial-username-min") . " characters long");
                 return false;
             }
-            $player = $this->getOwningPlugin()->getServer()->getPlayerByPrefix($args[0]);
+            $player = $this->getOwningPlugin()->getServer()->getPlayerByPrefix($playerName);
         } else {
-            $player = $this->getOwningPlugin()->getServer()->getPlayerExact($args[0]);
+            $player = $this->getOwningPlugin()->getServer()->getPlayerExact($playerName);
         }
 
         if ($player instanceof Player) {
+            // Check if the player is blacklisted
+            if (in_array($player->getName(), $this->blacklist)) {
+                $sender->sendMessage(TextFormat::RED . "You cannot sudo this player");
+                return false;
+            }
+
             $message = implode(" ", array_slice($args, 1));
             $player->chat($message);
             $sender->sendMessage(TextFormat::GREEN . "Message sent as " . TextFormat::WHITE . $player->getName());

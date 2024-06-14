@@ -1,30 +1,48 @@
-## About
+# AdvancedSudo
 
-This plugin introduces two commands to your server:
+AdvancedSudo is a Minecraft plugin that introduces commands allowing server administrators to send messages as other players or to all online players.
+
+## Commands
 
 - **/sudo**
   - Usage: `/sudo <player> <message>`
-  - Allows you to send messages as another player.
+  - Description: Send messages as another player.
 
 - **/sudoall**
   - Usage: `/sudoall <message>`
-  - Allows you to send messages as all online players.
+  - Description: Send messages as all online players.
 
 ## Permissions
 
 - `sudo.command`
   - Default: op
-  - Allows players to use the `/sudo` command.
+  - Description: Allows players to use the `/sudo` command.
 
 - `sudoall.command`
   - Default: op
-  - Allows players to use the `/sudoall` command.
+  - Description: Allows players to use the `/sudoall` command.
 
-## Config
+## Configuration
 
 ```yaml
-# If enabled, when you use the "/sudo" command, you can type part of a username (at least 3 characters), and it will return the matching player.
-partial_username: false
+# Config Version
+# DO NOT CHANGE THIS
+config-version: "1.0"
+
+# If enabled, when you use the "/sudo" command, you can type part of a username
+# (at least the specified minimum number of characters), and it will return the matching player.
+partial_username: true
+
+# The minimum number of characters required for partial username matching.
+# This value is used when partial_username is set to true.
+# Example: If set to 2, typing '/sudo Ni' can match 'NightDevil9440'.
+partial-username-min: 2
+
+# List of player names that are blacklisted from being sudoed using /sudo or /sudoall commands.
+# Separate each player name with a comma.
+# Example:
+# blacklist: NightDevil9440, BoxierChimera37
+blacklist: NightDevil9440, BoxierChimera37
 ```
 
 ## Issue Reporting
@@ -37,4 +55,4 @@ Any suggestions you may have to improve AdvancedSudo are welcome. Feel free to c
 
 ## Contribution
 
-I appreciate your interest in contributing to AdvancedSudo. However, I'll not be merging pull requests.
+If you want to contribute to this project, create a pull request [here](https://github.com/imLuckii/AdvancedSudo/pulls).

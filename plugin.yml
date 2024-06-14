@@ -1,9 +1,9 @@
 ---
 name: AdvancedSudo
-version: 1.0.0
-author: imLuckii
+version: 2.0.0
+author: imluckii
 main: imLuckii\AdvancedSudo\Loader
-api: 5.15.0
+api: 5.16.0
 
 permissions:
   advancedsudo.command.sudo:

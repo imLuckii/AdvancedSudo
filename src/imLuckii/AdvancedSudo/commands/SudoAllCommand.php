@@ -10,11 +10,14 @@ use pocketmine\plugin\PluginOwned;
 
 class SudoAllCommand extends Command implements PluginOwned
 {
+    private $blacklist;
 
     public function __construct(Loader $plugin)
     {
         parent::__construct("sudoall", "Send a message as all players", null, []);
         $this->setPermission("advancedsudo.command.sudoall");
+
+        $this->blacklist = array_map('trim', explode(',', $plugin->getConfig()->get('blacklist', '')));
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args): bool
@@ -49,7 +52,7 @@ class SudoAllCommand extends Command implements PluginOwned
     {
         $onlinePlayers = [];
         foreach ($this->getOwningPlugin()->getServer()->getOnlinePlayers() as $player) {
-            if ($player->getName() !== $sender->getName()) {
+            if ($player->getName() !== $sender->getName() && !in_array($player->getName(), $this->blacklist)) {
                 $onlinePlayers[] = $player;
             }
         }
